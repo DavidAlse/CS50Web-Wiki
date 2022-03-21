@@ -5,14 +5,33 @@
 {% endblock %}
 
 {% block body %}
+
+<div class="container">
+    {% if edit %}
+    <h1>Editing {{ entryTitle }}</h1>
+    {% else %}
     <h1>Create a New Entry</h1>
-    <form action="{%url 'encyclopedia:newPage' %}" method='post'>
+    {% endif %}
+
+    {% if alreadyExists %}
+    <div class="alert alert-danger" role="alert">
+        This page already exists! 
+    </div>
+    <div class="alert alert-info" role="alert">
+        If you would like to edit the existing page, click here
+    </div>
+    {% endif %}
+    <form autocomplete=off action="{%url 'encyclopedia:newPage' %}" method='post'>
         {% csrf_token %}
+        <div class="form-group">
         {{ form }}
+        </div>
         <!--- <input type='text' name='newEntryTitle' placeholder="Title goes here">
         <textarea maxlength="30" placeholder="Enter your text here" name="newPageBody"></textarea>
         --->
-        <input type="submit" name="submitNewPage">
+        <div class="form-group">
+        <input class="btn btn-success float-right" type="submit" name="submitNewPage">
+        </div>
     </form>
-
+</div>    
 {% endblock %}

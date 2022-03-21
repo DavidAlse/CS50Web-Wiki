@@ -14,13 +14,12 @@ h1 {
 
 textarea {
     height: 20vh;
-    width: 60%;
+    width: 50%;
 }
 
 textarea:focus {
     outline-width: 0;
 }
-
 
 .main {
     padding: 10px;
@@ -40,5 +39,25 @@ textarea:focus {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.main {
+    padding-left: 0%;
+}
+
+.container {
+    margin-left: 5%;
+}
+
+.form-group > label{
+    display:none; 
+}
+
+.form-control {
+    margin-bottom: 1%;
+}
+
+.row {
+    margin-right: 5px;
 }
 
